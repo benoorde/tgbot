@@ -1,5 +1,5 @@
-aiogram>=3.0.0
+aiogram>=3.4.0
 pydantic-settings
 aiohttp
 python-dotenv
-aiocryptopay
+aiocryptopay>=0.3.0
