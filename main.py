@@ -43,10 +43,12 @@ async def main() -> None:
         # Запуск веб-сервера
         runner = web.AppRunner(app)
         await runner.setup()
-        site = web.TCPSite(runner, host=settings.WEB_SERVER_HOST, port=settings.WEB_SERVER_PORT)
+        # Используем порт от платформы (PORT), если он есть, иначе из конфига
+        port = settings.PORT or settings.WEB_SERVER_PORT
+        site = web.TCPSite(runner, host=settings.WEB_SERVER_HOST, port=port)
         await site.start()
         
-        logging.info(f"Webhook running on {settings.WEB_SERVER_HOST}:{settings.WEB_SERVER_PORT}")
+        logging.info(f"Webhook running on {settings.WEB_SERVER_HOST}:{port}")
         logging.info(f"Webhook URL set to: {webhook_url}")
         
         # Бесконечный цикл, чтобы приложение не закрылось (так как мы не используем web.run_app внутри asyncio.run)
