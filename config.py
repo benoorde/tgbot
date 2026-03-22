@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     PRICE_STARS: int
     PRICE_USDT: float
     
-    WEB_SERVER_HOST: str = "localhost"
+    WEB_SERVER_HOST: str = "0.0.0.0"
     WEB_SERVER_PORT: int = 8080
     BASE_WEBHOOK_URL: str = ""
 
