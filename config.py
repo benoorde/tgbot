@@ -12,6 +12,7 @@ class Settings(BaseSettings):
     
     WEB_SERVER_HOST: str = "0.0.0.0"
     WEB_SERVER_PORT: int = 8080
+    PORT: int | None = None  
     BASE_WEBHOOK_URL: str = ""
 
 
